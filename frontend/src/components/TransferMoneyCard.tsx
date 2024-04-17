@@ -32,7 +32,7 @@ const formSchema = z.object({
   amount: z.string().min(1, "Amount should not be less than ₹0"),
 });
 
-const TransferMoneyCard: FC<TransferMoneyCardProps> = ({ recepient }) => {
+const TransferMoneyCard: FC<TransferMoneyCardProps> = () => {
   const { toast } = useToast();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
