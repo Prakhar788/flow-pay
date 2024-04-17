@@ -46,9 +46,11 @@ const TransferMoneyCard: FC<TransferMoneyCardProps> = ({ recepient }) => {
     try {
       // Convert amount to number
       const amount = Number(values.amount);
+      // console.log(values.userid);
+      const Id=String(values?.userid);
 
       const res = await axiosInstance.post("/account/transfer", {
-        to: recepient?._id,
+        to: Id,
         amount: amount,
       });
 
@@ -84,7 +86,8 @@ const TransferMoneyCard: FC<TransferMoneyCardProps> = ({ recepient }) => {
                     <Input
                       placeholder="User Id of recepient"
                       {...field}
-                      value={recepient?._id || ""}
+                      
+                    
                     />
                   </FormControl>
 
